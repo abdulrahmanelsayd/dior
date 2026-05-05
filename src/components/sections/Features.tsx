@@ -99,11 +99,11 @@ export default function Features() {
 
           <div ref={lineRef} className="w-24 h-[3px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-12" />
 
-          <div className="flex flex-col divide-y divide-brand-text/10">
+          <div className="flex flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 md:flex-col md:overflow-x-visible md:snap-none md:divide-y md:divide-brand-text/10 md:gap-0">
             {FEATURES.map((feature) => (
               <div
                 key={feature.number}
-                className="features-item flex gap-6 py-8 first:pt-0 last:pb-0"
+                className="features-item flex min-w-[85vw] snap-center gap-6 py-8 first:pt-0 last:pb-0 md:min-w-0"
               >
                 <span className="font-serif text-2xl text-brand-pink shrink-0">
                   {feature.number}

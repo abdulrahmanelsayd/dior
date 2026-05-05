@@ -60,3 +60,11 @@ body {
 button, a, [role="button"], [data-cursor="pointer"] {
   cursor: pointer;
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

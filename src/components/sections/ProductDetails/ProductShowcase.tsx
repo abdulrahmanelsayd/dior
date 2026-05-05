@@ -62,18 +62,16 @@ export default function ProductShowcase({
           ))}
         </ul>
 
-        <div ref={statsRef} className="flex items-center gap-6 mb-10 pb-6 border-b border-brand-text/10 w-full max-w-md">
-          <div className="flex flex-col">
+        <div ref={statsRef} className="grid grid-cols-3 gap-4 mb-10 pb-6 border-b border-brand-text/10 w-full max-w-md">
+          <div className="flex flex-col items-center text-center">
             <span className="font-serif text-2xl text-brand-pink-dark">{statsVisible ? animatedStats.brightening : 0}%</span>
             <span className="text-[10px] text-brand-muted uppercase tracking-wider mt-1">تفتيح ملحوظ</span>
           </div>
-          <div className="w-px h-8 bg-brand-text/10"></div>
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center text-center">
             <span className="font-serif text-2xl text-brand-pink-dark">{statsVisible ? animatedStats.softness : 0}%</span>
             <span className="text-[10px] text-brand-muted uppercase tracking-wider mt-1">نعومة فائقة</span>
           </div>
-          <div className="w-px h-8 bg-brand-text/10"></div>
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center text-center">
             <span className="font-serif text-2xl text-brand-pink-dark">{statsVisible ? animatedStats.satisfaction : 0}%</span>
             <span className="text-[10px] text-brand-muted uppercase tracking-wider mt-1">رضا العملاء</span>
           </div>

@@ -96,11 +96,11 @@ export default function Ingredients() {
         </div>
 
         {/* Circles */}
-        <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-16 lg:gap-20">
+        <div className="flex flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar items-center justify-start gap-10 md:flex-row md:overflow-x-visible md:snap-none md:justify-center md:gap-16 lg:gap-20">
           {INGREDIENTS_FULL.map((ing, i) => (
             <div
               key={ing.subtitle}
-              className="ing-card group flex flex-col items-center gap-4"
+              className="ing-card group flex min-w-[85vw] snap-center flex-shrink-0 flex-col items-center gap-4 md:min-w-0"
             >
               {/* Circle image */}
               <div className="relative h-48 w-48 overflow-hidden rounded-full border-2 border-brand-pink/20 p-1 transition-all duration-700 group-hover:border-brand-pink/60 group-hover:shadow-[0_0_40px_rgba(230,139,190,0.2)] lg:h-56 lg:w-56">

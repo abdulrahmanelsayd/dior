@@ -59,12 +59,12 @@ export default function HowToUse() {
           <div ref={lineRef} className="mt-5 w-24 h-[3px] mx-auto origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full" />
         </div>
 
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
+        <div className="flex flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 lg:flex-row lg:overflow-x-visible lg:snap-none lg:gap-12">
           {STEPS.map((step, index) => {
               return (
             <div
               key={step.number}
-              className="howto-step flex-1 text-center"
+              className="howto-step min-w-[85vw] snap-center flex-shrink-0 text-center lg:min-w-0 lg:flex-1"
             >
               <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-brand-pink/15 flex items-center justify-center">
                 <Icon iconId={step.iconId} className="h-7 w-7 text-brand-pink-dark" strokeWidth={1.5} />

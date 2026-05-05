@@ -38,14 +38,20 @@ export default function HeroCarousel() {
           aria-label={`${i + 1} of ${HERO_IMAGES.length}`}
           className="absolute inset-0"
         >
-          <Image
-            src={img.src}
-            alt={img.alt}
-            fill
-            sizes="100vw"
-            priority={i === 0}
-            className={`object-cover object-center transition-all duration-[1500ms] ease-in-out ${i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-          />
+          <picture>
+            {img.mobileSrc && (
+              <source media="(max-width: 767px)" srcSet={img.mobileSrc} />
+            )}
+            <source media="(min-width: 768px)" srcSet={img.src} />
+            <Image
+              src={img.mobileSrc || img.src}
+              alt={img.alt}
+              fill
+              sizes="100vw"
+              priority={i === 0}
+              className={`object-cover object-center transition-all duration-[1500ms] ease-in-out ${i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+            />
+          </picture>
         </div>
       ))}
 

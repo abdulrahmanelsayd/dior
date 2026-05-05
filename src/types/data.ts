@@ -19,6 +19,7 @@ export interface AnimatedStats {
 export interface HeroImage {
   src: string;
   alt: string;
+  mobileSrc?: string;
 }
 
 // ── Ingredients ──────────────────────────────────────

@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import HeroCarousel from "./HeroCarousel";
-import HeroIngredientShowcase from "./HeroIngredientShowcase";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +36,6 @@ export default function Hero() {
   return (
     <section ref={containerRef} className="relative w-full overflow-hidden">
       <HeroCarousel />
-      <HeroIngredientShowcase />
     </section>
   );
 }

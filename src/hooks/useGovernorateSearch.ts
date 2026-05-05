@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { GOVERNORATES } from "@/constants/governorates";
 import type { UseGovernorateSearchReturn } from "@/types/hooks";
 
@@ -12,11 +12,11 @@ export function useGovernorateSearch(): UseGovernorateSearchReturn {
     [govSearch]
   );
 
-  const selectGovernorate = (gov: string) => {
+  const selectGovernorate = useCallback((gov: string) => {
     setGovSearch(gov);
     setSelectedGov(gov);
     setGovDropdownOpen(false);
-  };
+  }, []);
 
   return {
     govSearch,

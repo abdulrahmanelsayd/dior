@@ -1,19 +1,39 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/sections/Hero/Hero';
-import Features from '@/components/sections/Features';
-import ScienceMeetsNature from '@/components/sections/ScienceMeetsNature';
-import Ingredients from '@/components/sections/Ingredients';
-import HowToUse from '@/components/sections/HowToUse';
-import Testimonials from '@/components/sections/Testimonials';
-import ProductDetails from '@/components/sections/ProductDetails/ProductDetails';
-import Guarantee from '@/components/sections/Guarantee';
-import Faq from '@/components/sections/Faq';
-import FinalCTA from '@/components/sections/FinalCTA';
-import Footer from '@/components/layout/Footer';
-import StickyCTA from '@/components/ui/StickyCTA';
-import SocialProofToast from '@/components/ui/SocialProofToast';
-import ExitIntent from '@/components/ui/ExitIntent';
 import SmoothScroll from '@/components/ui/SmoothScroll';
+
+const Features = dynamic(() => import('@/components/sections/Features'), {
+  loading: () => <div className="min-h-[600px]" />,
+});
+const ScienceMeetsNature = dynamic(() => import('@/components/sections/ScienceMeetsNature'), {
+  loading: () => <div className="min-h-[500px]" />,
+});
+const Ingredients = dynamic(() => import('@/components/sections/Ingredients'), {
+  loading: () => <div className="min-h-[500px]" />,
+});
+const HowToUse = dynamic(() => import('@/components/sections/HowToUse'), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const ProductDetails = dynamic(() => import('@/components/sections/ProductDetails/ProductDetails'), {
+  loading: () => <div className="min-h-[800px]" />,
+});
+const Guarantee = dynamic(() => import('@/components/sections/Guarantee'), {
+  loading: () => <div className="min-h-[300px]" />,
+});
+const Faq = dynamic(() => import('@/components/sections/Faq'), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const FinalCTA = dynamic(() => import('@/components/sections/FinalCTA'), {
+  loading: () => <div className="min-h-[300px]" />,
+});
+const Footer = dynamic(() => import('@/components/layout/Footer'), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const ClientOverlays = dynamic(() => import('@/components/ClientOverlays'));
 
 export default function Home() {
   return (
@@ -35,9 +55,7 @@ export default function Home() {
       <Faq />
       <FinalCTA />
       <Footer />
-      <StickyCTA />
-      <SocialProofToast />
-      <ExitIntent />
+      <ClientOverlays />
     </main>
     </SmoothScroll>
   );

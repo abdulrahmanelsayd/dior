@@ -10,6 +10,9 @@ export default function Magnetic({ children }: { children: ReactNode }) {
     const element = magnetic.current;
     if (!element) return;
 
+    // Only activate on devices with a fine pointer (mouse), skip touch devices
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
     // Use GSAP quickTo for highly performant animations tracking the mouse
     const xTo = gsap.quickTo(element, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
     const yTo = gsap.quickTo(element, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });

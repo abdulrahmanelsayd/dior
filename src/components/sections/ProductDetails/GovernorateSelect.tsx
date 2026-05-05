@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import { useGovernorateSearch } from "@/hooks/useGovernorateSearch";
 
 export default function GovernorateSelect() {
@@ -13,19 +14,64 @@ export default function GovernorateSelect() {
     selectGovernorate,
   } = useGovernorateSearch();
 
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
+
+  const isOpen = govDropdownOpen && govSearch.length > 0 && !selectedGov;
+
+  const handleSelect = useCallback((gov: string) => {
+    selectGovernorate(gov);
+    setHighlightedIndex(-1);
+  }, [selectGovernorate]);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!isOpen) return;
+
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        setHighlightedIndex((prev) =>
+          prev < filteredGovernorates.length - 1 ? prev + 1 : 0
+        );
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        setHighlightedIndex((prev) =>
+          prev > 0 ? prev - 1 : filteredGovernorates.length - 1
+        );
+        break;
+      case "Enter":
+        e.preventDefault();
+        if (highlightedIndex >= 0 && highlightedIndex < filteredGovernorates.length) {
+          handleSelect(filteredGovernorates[highlightedIndex]);
+        }
+        break;
+      case "Escape":
+        setGovDropdownOpen(false);
+        setHighlightedIndex(-1);
+        break;
+    }
+  }, [isOpen, filteredGovernorates, highlightedIndex, handleSelect, setGovDropdownOpen]);
+
   return (
     <div className="flex flex-col relative group">
       <input
         required
         type="text"
         id="governorate"
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-controls="governorate-listbox"
+        aria-activedescendant={highlightedIndex >= 0 ? `governorate-option-${highlightedIndex}` : undefined}
+        aria-autocomplete="list"
         value={govSearch}
         onChange={(e) => {
           setGovSearch(e.target.value);
           setGovDropdownOpen(true);
+          setHighlightedIndex(-1);
         }}
         onFocus={() => setGovDropdownOpen(true)}
-        onBlur={() => setTimeout(() => setGovDropdownOpen(false), 150)}
+        onBlur={() => setTimeout(() => { setGovDropdownOpen(false); setHighlightedIndex(-1); }, 150)}
+        onKeyDown={handleKeyDown}
         className="w-full bg-transparent border-b border-brand-text/10 py-3 text-sm text-brand-text focus:outline-none focus:border-brand-pink-dark/60 transition-colors duration-500 peer placeholder-transparent"
         placeholder="المحافظة"
       />
@@ -35,17 +81,20 @@ export default function GovernorateSelect() {
       >
         المحافظة
       </label>
-      {govDropdownOpen && govSearch.length > 0 && !selectedGov && (
-        <div className="absolute top-full right-0 left-0 mt-1 bg-white border border-brand-text/5 rounded-lg shadow-lg max-h-36 overflow-y-auto z-50">
-          {filteredGovernorates.map((g) => (
-            <button
-              type="button"
+      {isOpen && (
+        <div role="listbox" id="governorate-listbox" className="absolute top-full right-0 left-0 mt-1 bg-white border border-brand-text/5 rounded-lg shadow-lg max-h-36 overflow-y-auto z-50">
+          {filteredGovernorates.map((g, i) => (
+            <div
               key={g}
-              onMouseDown={() => selectGovernorate(g)}
-              className="w-full text-right px-3 py-2 text-sm text-brand-text hover:bg-brand-pink/10 transition-colors"
+              role="option"
+              id={`governorate-option-${i}`}
+              aria-selected={i === highlightedIndex}
+              onMouseDown={() => handleSelect(g)}
+              onMouseEnter={() => setHighlightedIndex(i)}
+              className={`w-full text-right px-3 py-2 text-sm text-brand-text hover:bg-brand-pink/10 transition-colors cursor-default ${i === highlightedIndex ? "bg-brand-pink/10" : ""}`}
             >
               {g}
-            </button>
+            </div>
           ))}
           {filteredGovernorates.length === 0 && (
             <div className="px-3 py-2 text-xs text-brand-muted/40">

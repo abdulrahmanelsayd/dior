@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback } from "react";
 import Image from "next/image";
 import { useCarousel } from "@/hooks/useCarousel";
 import { HERO_IMAGES } from "@/constants/hero";
@@ -7,18 +8,45 @@ import { HERO_IMAGES } from "@/constants/hero";
 export default function HeroCarousel() {
   const { current, goTo, goNext, goPrev } = useCarousel();
 
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case "ArrowLeft":
+        e.preventDefault();
+        goPrev();
+        break;
+      case "ArrowRight":
+        e.preventDefault();
+        goNext();
+        break;
+    }
+  }, [goPrev, goNext]);
+
   return (
-    <div className="relative w-full aspect-video">
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Hero image carousel"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      className="relative w-full aspect-video focus:outline-none"
+    >
       {HERO_IMAGES.map((img, i) => (
-        <Image
+        <div
           key={img.src}
-          src={img.src}
-          alt={img.alt}
-          fill
-          sizes="100vw"
-          priority={i === 0}
-          className={`object-cover object-center transition-all duration-[1500ms] ease-in-out ${i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-        />
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${i + 1} of ${HERO_IMAGES.length}`}
+          className="absolute inset-0"
+        >
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            sizes="100vw"
+            priority={i === 0}
+            className={`object-cover object-center transition-all duration-[1500ms] ease-in-out ${i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+          />
+        </div>
       ))}
 
       {/* Gradient overlays for text readability */}
@@ -29,14 +57,14 @@ export default function HeroCarousel() {
       <button
         onClick={goPrev}
         className="absolute left-4 bottom-[35%] z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/70 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/40"
-        aria-label="Previous"
+        aria-label="Previous slide"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
       </button>
       <button
         onClick={goNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/70 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/40"
-        aria-label="Next"
+        aria-label="Next slide"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
       </button>
@@ -56,13 +84,15 @@ export default function HeroCarousel() {
           <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
         </button>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3" role="tablist" aria-label="Slide navigation">
           {HERO_IMAGES.map((_, i) => (
             <button
               key={i}
+              role="tab"
               onClick={() => goTo(i)}
-              className={`h-2 rounded-full transition-all duration-500 ${i === current ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/60"}`}
+              aria-selected={i === current}
               aria-label={`Go to slide ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-500 ${i === current ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/60"}`}
             />
           ))}
         </div>

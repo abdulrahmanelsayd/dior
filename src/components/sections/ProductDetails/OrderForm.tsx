@@ -16,6 +16,11 @@ export default function OrderForm() {
         <p className="text-brand-muted/50 text-xs">الدفع عند الاستلام — شحن مجاني</p>
       </div>
 
+      {/* Screen reader live region for form state announcements */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {isSubmitted && "تم استلام طلبك بنجاح. سيتواصل معك أحد ممثلي خدمة العملاء قريباً لتأكيد الشحن."}
+      </div>
+
       {isSubmitted ? (
         <div className="flex flex-col items-center justify-center text-center py-10">
           <div className="w-16 h-16 bg-brand-pink-dark/8 rounded-full flex items-center justify-center mb-5">
@@ -27,7 +32,7 @@ export default function OrderForm() {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-brand-text/5 shadow-sm p-6 lg:p-8 flex flex-col gap-5">
+        <form onSubmit={handleSubmit} aria-label="طلب المنتج" className="bg-white rounded-2xl border border-brand-text/5 shadow-sm p-6 lg:p-8 flex flex-col gap-5">
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col relative group">
               <input required type="text" id="fname" className="w-full bg-transparent border-b border-brand-text/10 py-3 text-sm text-brand-text focus:outline-none focus:border-brand-pink-dark/60 transition-colors duration-500 peer placeholder-transparent" placeholder="الاسم" />
@@ -47,7 +52,7 @@ export default function OrderForm() {
             <input required type="text" id="address" className="w-full bg-transparent border-b border-brand-text/10 py-3 text-sm text-brand-text focus:outline-none focus:border-brand-pink-dark/60 transition-colors duration-500 peer placeholder-transparent" placeholder="العنوان" />
             <label htmlFor="address" className="absolute right-0 top-3 text-xs text-brand-muted/40 transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-brand-pink-dark/60 peer-focus:tracking-[0.15em] peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-[9px] peer-[&:not(:placeholder-shown)]:tracking-[0.15em] peer-[&:not(:placeholder-shown)]:text-brand-muted/50 uppercase tracking-widest pointer-events-none">العنوان بالتفصيل</label>
           </div>
-          <button type="submit" disabled={isSubmitting} className="w-full bg-brand-text text-white rounded-full py-4 text-sm tracking-wide shadow-lg hover:shadow-xl hover:bg-brand-pink-dark transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none">
+          <button type="submit" disabled={isSubmitting} aria-busy={isSubmitting} className="w-full bg-brand-text text-white rounded-full py-4 text-sm tracking-wide shadow-lg hover:shadow-xl hover:bg-brand-pink-dark transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none">
             {isSubmitting ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : "تأكيد الطلب — الدفع عند الاستلام"}
           </button>
           <div className="flex items-center justify-center gap-6 text-[10px] text-brand-muted/40">

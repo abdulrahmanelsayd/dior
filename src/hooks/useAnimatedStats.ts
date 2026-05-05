@@ -10,23 +10,27 @@ export function useAnimatedStats(): UseAnimatedStatsReturn {
   const [statsVisible, setStatsVisible] = useState(false);
   const [animatedStats, setAnimatedStats] = useState<AnimatedStats>(INITIAL_STATS);
   const rafIdRef = useRef<number>(0);
+  const statsVisibleRef = useRef(false);
 
   // IntersectionObserver to detect when stats section is visible
+  // Uses a ref to avoid re-creating the observer when statsVisible changes
   useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !statsVisible) {
+        if (entry.isIntersecting && !statsVisibleRef.current) {
+          statsVisibleRef.current = true;
           setStatsVisible(true);
+          observer.disconnect();
         }
       },
       { threshold: 0.5 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [statsVisible]);
+  }, []);
 
   // Animate stats when visible
   useEffect(() => {

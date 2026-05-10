@@ -36,16 +36,16 @@ export default function Faq() {
   };
 
   return (
-    <section id="faq-section" ref={sectionRef} className="py-24 lg:py-32 bg-white">
+    <section id="faq-section" ref={sectionRef} className="py-14 lg:py-20 bg-white">
       <div className="container mx-auto px-6 lg:px-16 max-w-4xl" ref={containerRef}>
         
         
-        <div className="text-center mb-16 lg:mb-24 flex flex-col items-center">
-          <span className="text-sm uppercase tracking-[0.25em] text-brand-pink-dark/70 mb-2 font-semibold">
+        <div className="text-center mb-8 lg:mb-12 flex flex-col items-center">
+          <span className="text-sm uppercase tracking-[0.25em] text-brand-pink-dark/70 mb-1 font-semibold">
             الدعم والأسئلة
           </span>
-          <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-4" />
-          <h2 className="font-serif text-3xl lg:text-4xl text-brand-text mb-6">
+          <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-2" />
+          <h2 className="font-serif text-3xl lg:text-4xl text-brand-text mb-3">
             أسئلة شائعة
           </h2>
         </div>

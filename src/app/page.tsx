@@ -42,7 +42,7 @@ export default function Home() {
       <Header />
       <Hero />
 
-      <div className="bg-brand-bg rounded-t-[2.5rem] lg:rounded-t-[4rem] rounded-b-[2.5rem] lg:rounded-b-[4rem] mx-3 lg:mx-8 my-6 lg:my-10 overflow-hidden">
+      <div className="bg-brand-bg rounded-t-[2.5rem] lg:rounded-t-[4rem] rounded-b-[2.5rem] lg:rounded-b-[4rem] mx-3 lg:mx-8 my-3 lg:my-5 overflow-hidden">
         <Features />
         <ScienceMeetsNature />
         <Ingredients />

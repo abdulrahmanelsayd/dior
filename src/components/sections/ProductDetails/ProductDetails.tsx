@@ -69,7 +69,7 @@ export default function ProductDetails() {
     <section
       id="shop-section"
       ref={sectionRef}
-      className="py-24 lg:py-32 overflow-hidden"
+      className="py-14 lg:py-20 overflow-hidden"
     >
       <div className="container mx-auto px-6 lg:px-16">
         <ProductShowcase

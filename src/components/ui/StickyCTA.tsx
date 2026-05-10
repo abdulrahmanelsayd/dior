@@ -36,8 +36,8 @@ export default function StickyCTA() {
               <span className="text-[10px] lg:text-xs text-brand-muted">مبيض المناطق الحساسة بالمسك</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-brand-pink-dark text-lg sm:ml-4">350 ج.م</span>
-              <span className="text-[9px] text-brand-muted line-through">450 ج.م</span>
+              <span className="font-serif text-brand-pink-dark text-lg sm:ml-4">349 ج.م</span>
+              <span className="text-[9px] text-brand-muted line-through">449 ج.م</span>
             </div>
           </div>
 

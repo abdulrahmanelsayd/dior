@@ -47,16 +47,16 @@ export default function HowToUse() {
   }, { scope: sectionRef });
 
   return (
-    <section id="howto-section" ref={sectionRef} className="py-24 px-8 lg:py-32 lg:px-16">
+    <section id="howto-section" ref={sectionRef} className="py-14 px-6 lg:py-20 lg:px-12">
       <div className="mx-auto max-w-4xl">
-        <div className="text-center mb-16">
-          <p className="howto-header text-sm uppercase tracking-widest text-brand-muted mb-4">
+        <div className="text-center mb-8">
+          <p className="howto-header text-sm uppercase tracking-widest text-brand-muted mb-2">
             سهلة الاستخدام
           </p>
           <h2 className="howto-header font-serif text-3xl text-brand-text lg:text-4xl">
             ٣ خطوات فقط لثقتك
           </h2>
-          <div ref={lineRef} className="mt-5 w-24 h-[3px] mx-auto origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full" />
+          <div ref={lineRef} className="mt-3 w-24 h-[3px] mx-auto origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full" />
         </div>
 
         <div className="flex flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 lg:flex-row lg:overflow-x-visible lg:snap-none lg:gap-12">
@@ -66,7 +66,7 @@ export default function HowToUse() {
               key={step.number}
               className="howto-step min-w-[85vw] snap-center flex-shrink-0 text-center lg:min-w-0 lg:flex-1"
             >
-              <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-brand-pink/15 flex items-center justify-center">
+              <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-brand-pink/15 flex items-center justify-center">
                 <Icon iconId={step.iconId} className="h-7 w-7 text-brand-pink-dark" strokeWidth={1.5} />
               </div>
               <span className="font-serif text-4xl text-brand-pink/30 block mb-2">{step.number}</span>

@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Lock, Truck } from "lucide-react";
-import { CHECKLIST_ITEMS } from "@/constants/product";
+import { CHECKLIST_ITEMS, PRODUCT_ORIGINAL_PRICE } from "@/constants/product";
 import CountdownTimer from "@/components/ui/CountdownTimer";
 import type { AnimatedStats } from "@/types/data";
 
@@ -24,25 +23,21 @@ export default function ProductShowcase({
   statsRef,
 }: ProductShowcaseProps) {
   return (
-    <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
       {/* Right Column - Text (appears on right in RTL) */}
       <div ref={textRef} className="flex flex-col items-start">
-        <p className="product-animate text-sm uppercase tracking-[0.25em] text-brand-muted/70 mb-2">
+        <p className="product-animate text-sm uppercase tracking-[0.25em] text-brand-muted/70 mb-1">
           منتجنا الأساسي
         </p>
-        <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-4" />
+        <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-2" />
         <h2 className="product-animate font-serif text-4xl text-brand-text tracking-wide lg:text-5xl">
           كريم Check Out
         </h2>
-        <div ref={lineRef} className="mt-4 mb-6 w-24 h-[3px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full" />
-        <p className="product-animate text-lg text-brand-muted mb-6">
+        <div ref={lineRef} className="mt-3 mb-4 w-24 h-[3px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full" />
+        <p className="product-animate text-lg text-brand-muted mb-4">
           مبيض المناطق الحساسة بالمسك الأبيض
         </p>
-        <span className="product-animate mb-10 rounded-full border border-brand-pink/40 bg-brand-pink/30 px-4 py-2 text-sm font-medium text-brand-text">
-          من DIORA
-        </span>
-
-        <ul className="mb-12 flex flex-col gap-4">
+        <ul className="mb-8 flex flex-col gap-3">
           {CHECKLIST_ITEMS.map((item) => (
             <li key={item.text} className="product-animate flex items-center gap-3">
               <svg
@@ -62,7 +57,7 @@ export default function ProductShowcase({
           ))}
         </ul>
 
-        <div ref={statsRef} className="grid grid-cols-3 gap-4 mb-10 pb-6 border-b border-brand-text/10 w-full max-w-md">
+        <div ref={statsRef} className="grid grid-cols-3 gap-4 mb-8 pb-4 border-b border-brand-text/10 w-full max-w-md">
           <div className="flex flex-col items-center text-center">
             <span className="font-serif text-2xl text-brand-pink-dark">{statsVisible ? animatedStats.brightening : 0}%</span>
             <span className="text-[10px] text-brand-muted uppercase tracking-wider mt-1">تفتيح ملحوظ</span>
@@ -80,8 +75,8 @@ export default function ProductShowcase({
         {/* Price + Urgency */}
         <div className="product-animate flex items-center gap-4 mb-4">
           <div className="flex items-center gap-2">
-            <span className="font-serif text-2xl text-brand-text">350 ج.م</span>
-            <span className="text-[10px] text-brand-muted line-through">450 ج.م</span>
+            <span className="font-serif text-2xl text-brand-text">349 ج.م</span>
+            <span className="text-[10px] text-brand-muted line-through">{PRODUCT_ORIGINAL_PRICE}</span>
           </div>
           <div className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-3 py-1 text-[10px] text-red-600 font-medium">
             <span className="animate-pulse-soft h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -91,16 +86,6 @@ export default function ProductShowcase({
 
         <CountdownTimer className="product-animate mb-4" />
 
-        <div className="flex flex-col sm:flex-row gap-4 text-xs text-brand-muted/80">
-          <div className="flex items-center gap-1.5">
-            <Truck className="w-4 h-4 text-brand-pink-dark" strokeWidth={1.5}/>
-            <span>توصيل مجاني</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-brand-pink-dark" strokeWidth={1.5}/>
-            <span>ضمان استرجاع 14 يوم</span>
-          </div>
-        </div>
       </div>
 
       {/* Left Column - Image (appears on left in RTL) */}

@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 export default function ScienceMeetsNature() {
   return (
-    <section id="science-section" className="py-24 lg:py-32">
+    <section id="science-section" className="py-14 lg:py-20">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12">
           {/* Product Image */}
-          <div className="relative flex items-center justify-center min-h-[450px] lg:min-h-[65vh]">
+          <div className="relative flex items-center justify-center min-h-[350px] lg:min-h-[50vh]">
             <Image
               src="/assets/images/hero-product-transparent.png"
               alt="كريم ديورا"
@@ -17,15 +17,15 @@ export default function ScienceMeetsNature() {
           </div>
 
           {/* Content */}
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-4">
             <div>
-              <span className="text-sm uppercase tracking-[0.25em] text-brand-pink-dark/70 mb-2 block">العلم يلتقي بالطبيعة</span>
-              <div className="w-16 h-[2px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-4" />
+              <span className="text-sm uppercase tracking-[0.25em] text-brand-pink-dark/70 mb-1 block">العلم يلتقي بالطبيعة</span>
+              <div className="w-16 h-[2px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-2" />
               <h2 className="font-serif text-3xl lg:text-4xl text-brand-text leading-snug mb-2">
                 المستحضر الطبيعي المطور
               </h2>
               <p className="text-brand-muted text-sm lg:text-base leading-relaxed max-w-md">
-                كريم Check Out — المستحضر الطبيعي المطور من DIORA. تخلصي من اللون الغامق واحصلي على تبييض طبيعي ونعومة لا مثيل لها.
+                كريم Check Out — المستحضر الطبيعي المطور. تخلصي من اللون الغامق واحصلي على تبييض طبيعي ونعومة لا مثيل لها.
               </p>
             </div>
 
@@ -39,7 +39,7 @@ export default function ScienceMeetsNature() {
             </div>
 
             {/* Trust Highlights */}
-            <div className="grid grid-cols-2 gap-4 w-full max-w-md pt-4 border-t border-brand-text/10">
+            <div className="grid grid-cols-2 gap-3 w-full max-w-md pt-3 border-t border-brand-text/10">
               <div className="flex items-center gap-2">
                 <span className="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-sm">💧</span>
                 <div>

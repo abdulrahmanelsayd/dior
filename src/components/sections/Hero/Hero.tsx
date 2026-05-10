@@ -16,19 +16,19 @@ export default function Hero() {
     if (!elements) return;
 
     gsap.from(elements, {
-      y: 40,
+      y: 24,
       opacity: 0,
-      duration: 1.2,
-      stagger: 0.15,
-      ease: "power3.out",
+      duration: 0.7,
+      stagger: 0.08,
+      ease: "power2.out",
     });
 
     if (lineRef.current) {
       gsap.from(lineRef.current, {
         scaleX: 0,
-        duration: 1.4,
-        delay: 0.6,
-        ease: "power3.out",
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power2.out",
       });
     }
   }, { scope: containerRef });

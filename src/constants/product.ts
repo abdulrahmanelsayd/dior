@@ -1,8 +1,10 @@
 import type { ChecklistItem, ProductStat } from "@/types/data";
 
-export const PRODUCT_PRICE = "350 ج.م";
-export const PRODUCT_ORIGINAL_PRICE = "450 ج.م";
+export const PRODUCT_PRICE = "349 ج.م";
+export const PRODUCT_ORIGINAL_PRICE = "449 ج.م";
 export const PRODUCT_DISCOUNT_PERCENT = 22;
+export const PRODUCT_SHIPPING = "50 ج.م";
+export const PRODUCT_TOTAL = "399 ج.م";
 export const PRODUCT_NAME = "كريم Check Out";
 export const PRODUCT_BRAND = "DIORA";
 

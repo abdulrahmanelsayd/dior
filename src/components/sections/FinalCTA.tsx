@@ -32,27 +32,23 @@ export default function FinalCTA() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 bg-brand-accent">
+    <section ref={sectionRef} className="py-12 lg:py-16 bg-brand-accent">
       <div className="container mx-auto px-6 lg:px-16 text-center">
-        <p className="final-cta-animate text-xs uppercase tracking-widest text-white/70 mb-4">
+        <p className="final-cta-animate text-xs uppercase tracking-widest text-white/70 mb-2">
           جاهية للفرق؟
         </p>
-        <h2 className="final-cta-animate font-serif text-3xl lg:text-5xl text-white mb-4 leading-tight">
+        <h2 className="final-cta-animate font-serif text-3xl lg:text-5xl text-white mb-2 leading-tight">
           بشرة أفتح. ثقة أكبر. رائحة أنقى.
         </h2>
-        <p className="final-cta-animate text-white/70 text-sm lg:text-base mb-8 max-w-md mx-auto">
+        <p className="final-cta-animate text-white/70 text-sm lg:text-base mb-5 max-w-md mx-auto">
           ابدأي رحلتك مع Check Out اليوم — تفتيح وترطيب وتعطير بالمسك الأبيض أو استرجاع مجاني.
         </p>
         <button
           onClick={handleCTA}
-          className="final-cta-animate inline-block bg-white text-brand-accent rounded-full px-10 py-4 text-sm tracking-wide font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          className="final-cta-animate inline-block bg-white text-brand-text border border-brand-text/10 rounded-full px-10 py-4 text-sm tracking-wide font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
         >
           اطلبي الآن — 350 ج.م
         </button>
-        <div className="final-cta-animate mt-6 flex items-center justify-center gap-6 text-xs text-white/60">
-          <span>🚚 توصيل مجاني فوق 100 ج.م</span>
-          <span>🔒 ضمان استرجاع 14 يوم</span>
-        </div>
       </div>
     </section>
   );

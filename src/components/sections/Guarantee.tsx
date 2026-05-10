@@ -27,10 +27,10 @@ export default function Guarantee() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 px-8 lg:py-20 lg:px-16 bg-brand-bg/50">
+    <section ref={sectionRef} className="py-10 px-6 lg:py-14 lg:px-12 bg-brand-bg/50">
       <div className="mx-auto max-w-4xl">
-        <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-widest text-brand-muted mb-3">مفيش أي مخاطرة</p>
+        <div className="text-center mb-6">
+          <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">مفيش أي مخاطرة</p>
           <h2 className="font-serif text-2xl lg:text-3xl text-brand-text">
             ضماننا لكي: فلوسك أو النتيجة
           </h2>
@@ -43,7 +43,7 @@ export default function Guarantee() {
               key={item.title}
               className="guarantee-item flex-1 bg-white rounded-2xl p-6 text-center shadow-sm"
             >
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-pink/15 flex items-center justify-center">
+              <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-brand-pink/15 flex items-center justify-center">
                 <Icon iconId={item.iconId} className="w-5 h-5 text-brand-pink-dark" strokeWidth={1.5} />
               </div>
               <h3 className="font-serif text-lg text-brand-text mb-2">{item.title}</h3>

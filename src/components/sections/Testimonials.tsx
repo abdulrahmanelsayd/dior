@@ -22,20 +22,20 @@ function Stars() {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials-section" className="py-24 lg:py-32">
+    <section id="testimonials-section" className="py-14 lg:py-20">
       <div className="container mx-auto px-6 lg:px-16">
         <ScrollReveal animation="stagger" stagger={0.15}>
           {/* Section Header */}
-          <div data-reveal className="mb-16 flex flex-col items-center text-center">
-            <p className="text-sm uppercase tracking-[0.25em] text-brand-muted/70 mb-2">
+          <div data-reveal className="mb-8 flex flex-col items-center text-center">
+            <p className="text-sm uppercase tracking-[0.25em] text-brand-muted/70 mb-1">
               قصص حقيقية. ثقة حقيقية.
             </p>
-            <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-4" />
+            <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-2" />
             <h2 className="font-serif text-3xl text-brand-text lg:text-4xl">
               محبوب من الآلاف
             </h2>
             {/* Rating Summary */}
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-4 flex items-center gap-3">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="h-5 w-5 text-brand-pink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

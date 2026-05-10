@@ -13,7 +13,7 @@ export default function OrderForm() {
         <span className="text-sm uppercase tracking-[0.25em] text-brand-pink-dark/70 font-medium block mb-2">خطوة واحدة للجمال</span>
         <div className="w-16 h-[2px] bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-4 mx-auto" />
         <h3 className="font-serif text-2xl lg:text-3xl text-brand-text mb-2">إتمام الطلب</h3>
-        <p className="text-brand-muted/50 text-xs">الدفع عند الاستلام — شحن مجاني</p>
+        <p className="text-brand-muted/50 text-xs">الدفع عند الاستلام — شحن 50 ج.م</p>
       </div>
 
       {/* Screen reader live region for form state announcements */}
@@ -53,7 +53,7 @@ export default function OrderForm() {
             <label htmlFor="address" className="absolute right-0 top-3 text-xs text-brand-muted/40 transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-brand-pink-dark/60 peer-focus:tracking-[0.15em] peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-[9px] peer-[&:not(:placeholder-shown)]:tracking-[0.15em] peer-[&:not(:placeholder-shown)]:text-brand-muted/50 uppercase tracking-widest pointer-events-none">العنوان بالتفصيل</label>
           </div>
           <button type="submit" disabled={isSubmitting} aria-busy={isSubmitting} className="w-full bg-brand-text text-white rounded-full py-4 text-sm tracking-wide shadow-lg hover:shadow-xl hover:bg-brand-pink-dark transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none">
-            {isSubmitting ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : "تأكيد الطلب — الدفع عند الاستلام"}
+            {isSubmitting ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : "تأكيد الطلب — الإجمالي 399 ج.م"}
           </button>
           <div className="flex items-center justify-center gap-6 text-[10px] text-brand-muted/40">
             <div className="flex items-center gap-1.5">
@@ -62,7 +62,7 @@ export default function OrderForm() {
             </div>
             <div className="flex items-center gap-1.5">
               <Truck className="w-3.5 h-3.5"/>
-              <span>شحن مجاني</span>
+              <span>شحن 50 ج.م</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Package className="w-3.5 h-3.5"/>

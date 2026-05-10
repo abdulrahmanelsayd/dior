@@ -1,26 +1,23 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export default function ExitIntent() {
   const [isOpen, setIsOpen] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-
-  const handleMouseLeave = useCallback((e: MouseEvent) => {
-    if (e.clientY <= 0 && !dismissed && !sessionStorage.getItem("diora_exit_shown")) {
-      setIsOpen(true);
-      sessionStorage.setItem("diora_exit_shown", "1");
-    }
-  }, [dismissed]);
 
   useEffect(() => {
-    document.addEventListener("mouseleave", handleMouseLeave);
-    return () => document.removeEventListener("mouseleave", handleMouseLeave);
-  }, [handleMouseLeave]);
+    if (localStorage.getItem("diora_welcome_shown")) return;
+
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      localStorage.setItem("diora_welcome_shown", "1");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    setDismissed(true);
   };
 
   if (!isOpen) return null;
@@ -44,7 +41,7 @@ export default function ExitIntent() {
 
         <h3 className="font-serif text-2xl text-brand-text mb-3">استني!</h3>
         <p className="text-brand-muted text-sm leading-relaxed mb-6">
-          قبل ما تروحي — خدي خصم <span className="text-brand-pink-dark font-bold">30%</span> على كريم Check Out.
+          قبل ما تروحي — خدي خصم <span className="text-brand-pink-dark font-bold">22%</span> على كريم Check Out.
           <br />
           العرض ده للعميلات الجدد بس.
         </p>

@@ -74,9 +74,9 @@ export default function Features() {
     <section
       id="features-section"
       ref={sectionRef}
-      className="py-24 px-8 lg:py-32 lg:px-16 overflow-hidden"
+      className="py-14 px-6 lg:py-20 lg:px-12 overflow-hidden"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
         {/* Right Column - Image (appears on right in RTL) */}
         <div className="features-image overflow-hidden rounded-2xl lg:order-2">
           <Image
@@ -90,20 +90,17 @@ export default function Features() {
 
         {/* Left Column - Stacked Text (appears on left in RTL) */}
         <div className="flex flex-col lg:order-1">
-          <p className="features-header font-sans text-sm uppercase tracking-widest text-brand-muted mb-4">
-            من DIORA
-          </p>
-          <h2 className="features-header font-serif text-3xl leading-tight text-brand-text mb-4 lg:text-5xl">
+          <h2 className="features-header font-serif text-3xl leading-tight text-brand-text mb-3 lg:text-5xl">
             الأكثر شهرة لتفتيح المناطق الحساسة
           </h2>
 
-          <div ref={lineRef} className="w-24 h-[3px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-12" />
+          <div ref={lineRef} className="w-24 h-[3px] origin-right bg-gradient-to-l from-brand-accent to-brand-accent/20 rounded-full mb-6" />
 
           <div className="flex flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 md:flex-col md:overflow-x-visible md:snap-none md:divide-y md:divide-brand-text/10 md:gap-0">
             {FEATURES.map((feature) => (
               <div
                 key={feature.number}
-                className="features-item flex min-w-[85vw] snap-center gap-6 py-8 first:pt-0 last:pb-0 md:min-w-0"
+                className="features-item flex min-w-[85vw] snap-center gap-4 py-5 first:pt-0 last:pb-0 md:min-w-0"
               >
                 <span className="font-serif text-2xl text-brand-pink shrink-0">
                   {feature.number}

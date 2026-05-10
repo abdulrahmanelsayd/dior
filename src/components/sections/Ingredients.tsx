@@ -64,15 +64,15 @@ export default function Ingredients() {
     <section
       ref={sectionRef}
       id="ingredients-section"
-      className="relative overflow-hidden py-16 lg:py-24"
+      className="relative overflow-hidden py-10 lg:py-16"
     >
       {/* Soft radial glow behind cards */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-brand-pink/8 blur-[120px]" />
 
       <div className="container relative mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="mb-10 flex flex-col items-center text-center lg:mb-14">
-          <div className="ing-ornament mb-3 flex items-center gap-3">
+        <div className="mb-6 flex flex-col items-center text-center lg:mb-8">
+          <div className="ing-ornament mb-2 flex items-center gap-3">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-brand-accent/40" />
             <span className="text-[10px] uppercase tracking-[0.35em] text-brand-muted">
               Natural Ingredients
@@ -141,7 +141,7 @@ export default function Ingredients() {
         </div>
 
         {/* Bottom ornament */}
-        <div className="ing-ornament mt-10 flex items-center justify-center gap-2 lg:mt-14">
+        <div className="ing-ornament mt-6 flex items-center justify-center gap-2 lg:mt-8">
           <span className="h-px w-8 bg-brand-accent/20" />
           <span className="text-[9px] uppercase tracking-[0.4em] text-brand-muted/50">
             ✦

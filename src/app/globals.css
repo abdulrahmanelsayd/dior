@@ -1,22 +1,32 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
+@font-face {
+  font-family: "DioraHeadline";
+  src: url("/fonts/headline.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-0024, U+0026-002F, U+003A-007E, U+00A0-00FF, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200D, U+201C-201D, U+2026;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1A1A1A;
+  --font-headline: "DioraHeadline";
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-alexandria);
-  --font-serif: var(--font-amiri);
+  --font-sans: var(--font-text), Arial, Helvetica, sans-serif;
+  --font-serif: var(--font-headline), var(--font-text), Arial, Helvetica, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-alexandria), Arial, Helvetica, sans-serif;
+  font-family: var(--font-text), Arial, Helvetica, sans-serif;
 }
 
 @keyframes fade-up {

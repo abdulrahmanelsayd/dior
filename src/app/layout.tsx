@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Amiri, Alexandria } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const amiri = Amiri({
-  variable: "--font-amiri",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
-
-const alexandria = Alexandria({
-  variable: "--font-alexandria",
-  subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
+const textFont = localFont({
+  src: "../../public/fonts/text.ttf",
+  variable: "--font-text",
   display: "swap",
 });
 
@@ -35,7 +27,7 @@ export default function RootLayout({
     <html
       dir="rtl"
       lang="ar"
-      className={`${amiri.variable} ${alexandria.variable} h-full antialiased`}
+      className={`${textFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-brand-text overflow-x-hidden">
           {children}
